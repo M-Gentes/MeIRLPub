@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" href="./main.css">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title>Gentes - Praxis</title>
+</head>
+
+<body>
+    <h1 class="title rotate">
+        Manuel Gentes
+    </h1>
+    <div class="layout">
+
+        <div class="nav-triangle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 99" preserveAspectRatio="none">
+                <polygon fill="white" points="-50,100 100,0 100,100" />
+            </svg>
+        </div>
+        <nav>
+
+            <div class="nav-list">
+                <!-- (Templates?) -->
+                <a href="./index.html">Home</a>
+                <a href="./studium.html">Studium</a>
+                <a class="active" href="./praxis.html">Praxis</a>
+                <a href="./hobby.html">Hobbys</a>
+            </div>
+        </nav>
+        <main>
+            <div class="content">
+                <div class="timeline">
+                        <div class="project">
+                            <h2>Werkstudent:</h2>
+                            <div>
+                                Widget-Entwicklung und Unterstützung des <a style="color: #551A8B; cursor: help;" title="Mendix ist eine (externe) Low-Code-Entwicklungsumgebung, die auf Java basiert">Mendix</a>-Teams der d.u.h.-Group <a class="external" target="_blank" href="https://www.duh-group.com/de/software/individualsoftware-mendix/">Unternehmensseite</a>
+                            </div>
+                            <ul>
+                                <li>
+                                    Entwicklung von Sonderfunktionalitäten mit Java/JavaScript
+                                </li>
+                                <li>
+                                    Konfiguration von Push-Benachrichtigungen in Mendix
+                                </li>
+                                <button id="notify" title="Push-Demo">Push Me</button>
+                                <li>
+                                    Integration von KI-Tools in Mendix
+                                </li>
+                                <li>
+                                    Recherche verschiedener Funktionalitäten, wie diese in Mendix umzusetzen sind
+                                </li>
+                            </ul>
+                            <!-- <img> -->
+                        </div>
+                        <div class="project">
+                            <h2>Forschungsprojekt: Mitacs Kanada</h2>
+                            <div>Global Research Internship: Visualization of Game Theory Principles <a class="external" href="https://oscar.athabascau.ca/research.html" target="_blank">Projekt-Referenz</a></div>
+                            <ul>
+                                <li>Visualisierungen von Spieltheorie-Prinzipien wie das Centipede Game für die Lehre</li>
+                                <li>Austausch mit weiteren Mitacs-Studierenden</li>
+                                <li>Erkundung Kanadas (Edmonton, National Park, Vancouver)</li>
+                            </ul>
+                            <iframe width="1000" height="800" src="https://fuhualin.github.io/RPSGame/html/rps_game.html?random=true&habitMoveCounter=true&pr_util1=1&pr_util2=-1&sr_util1=-1&sr_util2=1&sp_util1=1&sp_util2=-1&rp_util1=-1&rp_util2=1&rs_util1=1&rs_util2=-1&ps_util1=-1&ps_util2=1">
+                            </iframe>
+                        </div>
+                        <div class="project">
+                            <h2>Wissenschaftliche Hilfskraft (HiWi):</h2>
+                            <div>
+                                Forschung und Lehre im Bereich Gamification im Fach Algorithmen und Datenstrukturen
+                            </div>
+                            <ul>
+                                <li>Aufbereitung von Aufgabentypen</li>
+                                <li>Konzeption von Quizfragen</li>
+                                <li>Konzeption eines Escape-Games in dem Learning Management System OpenOLAT</li>
+                            </ul>
+                            <!-- <img> -->
+                        </div>
+                        <div class="project">
+                            <h2>Praxisprojekt:</h2>
+                            <div>
+                                Entwicklung für mobile webbasierte Apps im React-Tech-Ökosystem
+                            </div>
+                            <ul>
+                                <li>Einarbeitung in TypeScript, Webumgebung und Testsystem</li>
+                                <li>Weiterführung der Migration von AngularJS nach React/TypeScript (inkl. NodeJS-Skripte zur Automatisierung)</li>
+                            </ul>
+                            <img style="max-width: 30vw;" src="./res/Angular migration.png">
+                        </div>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <!-- Erreichbar unter: ? -->
+            <!-- Privacy & License ? -->
+        </footer>
+    </div>
+</body>
+
+<script>
+    
+const button = document.querySelector("#notify");
+var logs = ""
+
+function notify() {
+    
+      const n = new Notification(`Ein kleiner Push kann nicht schaden.`, {
+        tag: "soManyNotifications",
+      });
+}
+
+button.addEventListener("click", () => {
+  if (Notification?.permission === "granted") {
+    logs = `The site has permission to show notifications. Showing notifications.\n`;
+    notify();
+  } else if (Notification?.permission !== "denied") {
+    logs = "Requesting notification permission.\n";
+    // If the user hasn't told if they want to be notified or not
+    // Note: because of Chrome, we are not sure the permission property
+    // is set, therefore it's unsafe to check for the "default" value.
+    Notification.requestPermission().then((status) => {
+      // If the user said okay
+      if (status === "granted") {
+        logs =
+          "User granted the permission. Sending notifications.\n";
+        notify();
+      } else {
+        // Otherwise, we can fallback to a regular modal alert
+        logs = `User denied the permission request.\n`;
+      }
+    });
+  } else {
+    // If the user refuses to get notified, we can fallback to a regular modal alert
+    logs = `The site does not have permission to show notifications.\n`;
+  }
+
+  console.log(logs)
+
+});
+</script>

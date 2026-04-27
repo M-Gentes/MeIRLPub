@@ -1,14 +1,105 @@
 <!DOCTYPE html>
-<header>
+<html lang="de">
 
-</header>
+<head>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <meta charset="UTF-8">
+    <title>Gentes - Home</title>
+</head>
+
 <body>
-    <div>
+    <h1 class="title rotate">
+        Manuel Gentes
+    </h1>
+    <div class="layout">
+
+        <div class="nav-triangle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 99" preserveAspectRatio="none">
+                <polygon fill="white" points="-50,100 100,0 100,100" />
+            </svg>
+        </div>
         <nav>
 
+            <div class="nav-list">
+                <!-- (Templates?) -->
+                <a class="active" href="./index.html">Home</a>
+                <a href="./studium.html">Studium</a>
+                <a href="./praxis.html">Praxis</a>
+                <a href="./hobby.html">Hobbys</a>
+            </div>
         </nav>
         <main>
-            <h1>Das bin Ich! Viel Spaß!</h1>
+            <div class="content">
+                <div>
+                    <h2>Das bin ich:</h2>
+                    <div style="display: flex; flex-direction: row; gap: 5rem;">
+                        <ul style="margin: 0;">
+                            <li>
+                                <h3>Frontend-Entwickler</h3>
+                            </li>
+                            <li>
+                                <h3>Hobby-Designer</h3>
+                            </li>
+                            <li>
+                                <h3>GameDev und Gaming Enjoyer</h3>
+                            </li>
+                        </ul>
+                        <div class="gimmick">
+                            <canvas style="border: 1px solid black;"></canvas>
+                            <div>
+                                <button id="mv-btn-up">˄</button>
+                                <button id="mv-btn-down">˅</button>
+                                <button id="mv-btn-left">˂</button>
+                                <button id="mv-btn-right">˃</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2> Werdegang </h2>
+                    <div style="display: grid; grid-template-columns: 1fr 25fr; height: 100%;">
+                        <div style="height: 100%;">
+                            <img style="margin: unset; position: relative; left: 50%; top: 4%; object-fit: scale-down;"
+                                src="./res/timeline-indicator.png">
+                        </div>
+                        <div class="timeline">
+                            <span>
+                                <strong>04/2026:</strong> Master of Science: Informatik - Mensch-Maschine-Interaktion -
+                                Hochschule
+                                Kaiserslautern
+                                <!-- <img alt="Kurzübersicht Master-Projekte"> -->
+                            </span>
+                            <span>
+                                <strong>03/2023:</strong> Bachelor of Science: Medieninformatik - Hochschule
+                                Kaiserslautern
+                                <!-- <img alt="Kurzübersicht Bachelor-Projekte?"> -->
+                            </span>
+                            <span>
+                                <strong>07/2022:</strong> Forschungsprojekt: Mitacs Kanada - Visualization of Game
+                                Theory Principles
+                            </span>
+                            <span>
+                                <strong>02/2022:</strong> Wissenschaftliche Hilfskraft: Gamification für Algorithmen und
+                                Datenstruturen
+                            </span>
+                            <span>
+                                <strong>04/2019:</strong> Abitur
+                            </span>
+                            <span>
+                                <strong>12/2018:</strong> Schulprojekt Erasmus+ mit Ausflug nach Wadowice
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
+        <footer class="footer">
+            <!-- Kontakt - -->
+            <!-- Privacy & License -->
+        </footer>
     </div>
+    <script src="minigame-main.js"></script>
 </body>
+
+</html>

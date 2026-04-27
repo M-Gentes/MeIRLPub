@@ -1,0 +1,279 @@
+* {
+    font-family: Arial, Tahoma, Verdana, sans-serif;
+}
+
+/* Check overflow */
+/* * {
+    outline: 1px solid red;
+} */
+
+body {
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.layout {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "nav content"
+        "footer footer";
+    grid-template-columns: 0.8fr 3fr;
+    height: 100%;
+    max-width: 100%;
+
+    /* fill missing */
+    height: 100vh;
+    grid-template-rows: auto 5fr auto;
+
+    @media (width <=1000px) {
+        column-gap: 5rem;
+
+    }
+}
+
+
+.nav-triangle {
+    color: white;
+    position: relative;
+    /* height: max(301px, 20vh); */
+    height: clamp(301px, 12vh, 50rem);
+    background-image: linear-gradient(#060504, #291d18);
+    grid-area: header;
+}
+
+.layout nav {
+    grid-area: nav;
+    height: 100%;
+    background-color: #FFF067;
+    mix-blend-mode: multiply;
+    width: 12vw;
+    min-width: 8rem;
+    margin-left: 4rem;
+    padding-top: 8rem;
+    margin-top: -5.2rem;
+}
+
+.layout footer {
+    grid-area: footer;
+    background-color: #060504;
+    padding: 1rem;
+    height: max(5vh, 20%);
+    /* width: 100vw; */
+    color: white;
+    text-align: center;
+    /* padding-bottom: 100%; */
+}
+
+.layout main {
+    grid-area: content;
+    height: 100%;
+}
+
+h2,
+.heading,
+.nav-list a,
+strong {
+    font-family: "Arial Rounded MT Bold", Arial;
+}
+
+h2 {
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    min-width: fit-content;
+    max-width: 10vw;
+}
+
+.absolute {
+    position: absolute;
+    padding-top: 8rem;
+}
+
+.sticky {
+    position: sticky;
+}
+
+.nav-list {
+    /* position: absolute;
+            top: 160px;
+            left: 20%; */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    top: 180px;
+    position: sticky;
+    
+    padding-left: 1.2rem;
+
+    /* gap: 1.2rem; */
+    a {
+        padding: 1rem;
+        font-size: 1.2em;
+        text-decoration: none;
+        color: black;
+        margin-left: min(-2.5rem, -2vw);
+        margin-top: 0.5rem;
+    }
+
+    /* a:before {
+                content: '▶';
+                position: absolute;
+                left: 16px;
+            } */
+
+    a:hover, a:active, a.active {
+        background-color: #060504;
+        color: white;
+        cursor: pointer;
+        width: fit-content;
+    }
+}
+
+svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+    /* set height to pixels if you want angle to change with screen width */
+}
+
+.title {
+    /* all: unset; */
+    position: absolute;
+    /* top: 12vh; */
+    top: min(12vh, 7rem);
+    color: white;
+    font-weight: bold;
+    font-size: 5em;
+    font-family: "Arial Rounded MT Bold", Arial;
+    left: 3vw;
+    margin: 0px;
+    z-index: 100;
+}
+
+/* @media only screen and (max-width: 700px) {
+    .title {
+        top: 8vh;
+    }
+} */
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -2rem;
+    /* padding-left: 1rem; */
+}
+
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.rotate {
+
+    transform: rotate(-4deg) skew(3.0rad);
+
+    /* Safari */
+    -webkit-transform: rotate(-4deg) skew(3.0rad);
+
+    /* Firefox */
+    -moz-transform: rotate(-4deg) skew(3.0rad);
+
+}
+
+.timeline.project {
+    display: flex;
+    flex-direction: column;
+}
+
+.project>div:not(.img-link), .desc {
+    box-shadow: 1px 3px 8px black;
+    padding: 0.4rem;
+    width: fit-content;
+    &::before {
+        content: "⏵ ";
+    }
+}
+
+/* .desc::before {
+    content: "⏵ ";
+} */
+
+main img {
+    margin: 1rem;
+    max-height: 20vh;
+}
+
+.img-link {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: fit-content;
+    text-align: center;
+}
+
+.external {
+    color: black;
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 0.2rem;
+    margin-left: 0.2rem;
+}
+
+.external:hover {
+    background-color: black;
+    color: white;
+}
+
+.external::after {
+    content: " 🡵";
+}
+
+#notify {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 2px 2px black;
+}
+
+#notify {
+    margin-left: 2rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+#notify:hover, .gimmick > div > button:hover  {
+    background-color: #5858ff;
+}
+
+.gimmick > div > button {
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    padding: 0.4rem;
+    font-weight: bold;
+    border: none;
+    box-shadow: 2px 2px black;
+    font-size: 2rem;
+}
+
+.gimmick {
+    /* position: absolute;
+    left: 2rem;
+    top: 0; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+}
